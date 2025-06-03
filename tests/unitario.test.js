@@ -45,4 +45,35 @@ function runUnitTests() {
     }
     if (!erro) throw new Error("Esperado erro de divisão por zero");
   });
+  // Testes feitos em Aula
+  testar("UNIT - Soma com numeros inteiros", () => {
+    if (somar(-20, 20) !== 0) throw new Error("Esperado 0");
+  });
+  testar("UNIT - Soma de negativos com numeros positivos", () => {
+    if (somar(-4, 15) !== 11) throw new Error("Esperado 11");
+  });
+  testar("UNIT - Subtração de dois numeros negativos", () => {
+    if (subtrair(-10, -10) !== 0) throw new Error("Esperado 0");
+});
+  testar("UNIT - Multiplicação com negativos", () => {
+    if (multiplicar(-4, 5) !== -20) throw new Error("Esperado -20");
+  });
+  testar("UNIT - Divisão por negativos", () => {
+    if (dividir(-7, 1) !== -7) throw new Error("Esperado -7");
+  });
+ //Aqui são usados math.abs com epilson são usados para imprecisão de numeros flutuantes
+  testar("UNIT - Soma de numeros muito pequenos", () => {
+  const resultado = somar(0.2, 0.1);
+  const esperado = 0.3;
+  const epsilon = 0.000001; // margem de erro aceitável
+
+  if (Math.abs(resultado - esperado) > epsilon) {
+    throw new Error(`Esperado aproximadamente ${esperado}, mas recebeu ${resultado}`);
+  }
+});
+  testar("UNIT - Multiplicação de numeros grandes", () => {
+    if (multiplicar(1000000, 1000000) !== 1000000000000) throw new Error(" Esperado 1.000.000.000.000");
+  });
+  testar()
+
 }
